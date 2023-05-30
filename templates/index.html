@@ -1,36 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Image Prediction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            text-align: center;
-        }
-        input[type="file"] {
-            margin-top: 10px;
-        }
-        #result {
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
+  <title>Plant Disease Detection</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Image Prediction</h1>
-    <form action="/predict" method="post" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <br>
-        <input type="submit" value="Predict">
+  <div class="container">
+    <h1 class="text-center mb-4">Plant Disease Detection</h1>
+    <form id="image-upload" method="post" enctype="multipart/form-data" action="/predict">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" required>
+        <label class="custom-file-label" for="image">Choose Image</label>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Upload and Predict</button>
+      </div>
     </form>
-    <div id="result">
-        <!-- The prediction result will be displayed here -->
-    </div>
+    <div id="image-preview" class="text-center mt-4"></div>
+    <div id="prediction-result" class="text-center mt-4"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
