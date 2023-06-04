@@ -7,10 +7,8 @@ from keras.models import load_model
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
-# Load the model from the h5 file
+# Load the model and label transformer from pickle files
 model = load_model('Model_AlexNet.h5')
-
-# Load the label transformer from the pickle file
 label_transform = joblib.load('label_transform (1).pkl')
 
 @app.route('/')
@@ -31,12 +29,11 @@ def predict():
     # Perform the prediction using the loaded model
     prediction = model.predict(preprocessed_image)
 
-    # Transform the predicted labels using the label transformer
+    # Transform the predicted labels back to their original form
     predicted_label = label_transform.inverse_transform(prediction)[0]
 
-    # Return the prediction result as a JSON response
-    response = {'prediction': str(predicted_label)}
-    return jsonify(response)
+    # Render a template with the prediction result
+    return render_template('result.html', prediction=predicted_label)
 
 if __name__ == '__main__':
     app.run(debug=True)

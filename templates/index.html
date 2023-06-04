@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Plant Disease Detection</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -13,16 +13,16 @@
         <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" required>
         <label class="custom-file-label" for="image">Choose Image</label>
       </div>
+      <div class="image-name"></div>
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary">Upload and Predict</button>
       </div>
     </form>
-    <div id="image-preview" class="text-center mt-4"></div>
     <div id="prediction-result" class="text-center mt-4"></div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
