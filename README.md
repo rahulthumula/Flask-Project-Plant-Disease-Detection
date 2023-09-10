@@ -14,7 +14,7 @@
 - **JavaScript**: The magic wand that adds interactivity to your experience.
 - **Flask**: The backbone of our application, serving you lightning-fast, real-time disease predictions.
 - **Pickle**: That’s not just a tasty snack! We use it to serialize our top-notch machine learning model.
-- **Python's HTTP Server**: Makes local testing a walk in the park.
+
 
 ## 🚀 Ready to Detect Some Plant Diseases?
 
